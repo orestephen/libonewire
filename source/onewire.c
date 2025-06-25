@@ -35,11 +35,12 @@ static int32_t onewire_wait_timeout(struct onewire_struct* onewire, uint32_t fla
     /* get device status */
     *status = onewire->dev->get_status();
 
+    /* only checkout for timeout when timeout is greater than zero */
     if (timeout > ONEWIRE_TIMEOUT_INFINITE) {
       /* get system tick */
       tick = onewire->tick();
       /* check for timeout event */
-      if (tick - start > timeout) return ONEWIRE_ERROR_TIMEOUT;
+      if (tick - start > (uint32_t)timeout) return ONEWIRE_ERROR_TIMEOUT;
     }
 
     /* check for one or more status flags */
@@ -80,7 +81,8 @@ static int32_t onewire_trx_wait(struct onewire_struct* onewire, int32_t timeout)
     /* send data */
     onewire_trx_data(onewire, 1);
 
-    if (timeout > ONEWIRE_TIMEOUT_NOWAIT) {
+    /* only wait if timeout is infinite or greater than zero, else skip */
+    if (timeout != ONEWIRE_TIMEOUT_NOWAIT) {
       /* wait for flag or timeout */
       if (onewire_wait_timeout(onewire, ONEWIRE_DEV_STATUS_ALL, timeout, start, &status))
         return ONEWIRE_ERROR_TIMEOUT;
