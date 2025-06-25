@@ -25,6 +25,9 @@ run tests
 `ctest --test-dir build`
 
 ### Unit Tests
+
+[![CMake CI](https://github.com/orestephen/libonewire/actions/workflows/ci.yml/badge.svg)](https://github.com/orestephen/libonewire/actions/workflows/ci.yml)
+
  - test_master_tx: test master transmit API
  - test_master_rx: test master receive API
  - test_master_tx: test master transmit with infinite timeout API
