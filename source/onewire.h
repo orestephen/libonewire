@@ -23,7 +23,7 @@ extern "C" {
 #define ONEWIRE_STATE_ERROR 3
 
 #define ONEWIRE_TIMEOUT_NOWAIT 0
-#define ONEWIRE_TIMEOUT_INFINIT -1
+#define ONEWIRE_TIMEOUT_INFINITE -1
 
 struct onewire_buffer_struct {
   uint8_t* data;

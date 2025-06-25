@@ -35,7 +35,7 @@ static int32_t onewire_wait_timeout(struct onewire_struct* onewire, uint32_t fla
     /* get device status */
     *status = onewire->dev->get_status();
 
-    if (timeout > ONEWIRE_TIMEOUT_INFINIT) {
+    if (timeout > ONEWIRE_TIMEOUT_INFINITE) {
       /* get system tick */
       tick = onewire->tick();
       /* check for timeout event */
