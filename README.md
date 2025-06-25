@@ -27,3 +27,4 @@ run tests
 ### Unit Tests
  - test_master_tx: test master transmit API
  - test_master_rx: test master receive API
+ - test_master_tx: test master transmit with infinite timeout API

@@ -9,3 +9,8 @@ add_executable(test_master_rx test_device.c test_timer.c test_master_rx.c)
 target_include_directories(test_master_rx PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 target_link_libraries(test_master_rx libonewire)
 add_test(test_master_rx test_master_rx)
+
+add_executable(test_master_tx_infinite test_device.c test_timer.c test_master_tx_infinite.c)
+target_include_directories(test_master_tx_infinite PUBLIC ${CMAKE_CURRENT_LIST_DIR})
+target_link_libraries(test_master_tx_infinite libonewire)
+add_test(test_master_tx_infinite test_master_tx_infinite)
